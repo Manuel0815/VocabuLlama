@@ -729,7 +729,7 @@ section,
   font-weight: 300;
   line-height: 1.2;
   color: var(--heading-color);
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
   letter-spacing: -1px;
 }
 
@@ -1609,17 +1609,17 @@ section,
 }
 
 @media (max-width: 992px) {
-  .resume .section-header {
+  /* .resume .section-header {
     margin-bottom: 2rem;
-  }
+  } */
 
   .resume .section-header .header-content h2 {
     font-size: 2rem;
   }
 
-  .resume .experience-section {
+  /* .resume .experience-section {
     margin-bottom: 3rem;
-  }
+  } */
 
   .resume .education-timeline .timeline-track .timeline-item .timeline-marker {
     width: 45px;

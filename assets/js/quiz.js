@@ -315,6 +315,7 @@ $(document).ready(function () {
             animatePoints("#finalP1pointsSingle", p1points);
             animatePoints("#finalP2points", p2points);
             gameOverSound();
+            window.scrollTo(0, 0);
             if (quizConfig.players > 1) {
                 $("#summaryMultiPlayerCards").removeClass("d-none");
                 $("#summarySinglePlayerCards").addClass("d-none");
