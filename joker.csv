@@ -1,8 +1,14 @@
 Type;Title;Text;Points;Affects
 add;Plus 15;You get 15 points!;15;own
+add;Plus 5;You get 5 points!;5;own
 add;Minus 10;You loose 10 points!;-10;own
+add;Minus 5;You loose 5 points!;-5;own
 steal;Steal 10 Points;You steal 10 points of your opponent!;10;opponent
+steal;Steal 15 Points;You steal 15 points of your opponent!;15;opponent
 steal;Steal 20 Points;You steal 20 points of your opponent!;20;opponent
+steal;Give 10 Points;You give 10 points to your opponent!;-10;opponent
+steal;Give 15 Points;You give 15 points to your opponent!;-15;opponent
+steal;Give 20 Points;You give 20 points to your opponent!;-20;opponent
 swap;Swap!;Points are swapped!;0;both
 double;Doubletime!;Your points are doubled!;0;own
 reset;Back to start!;The scores are reset!;0;both
