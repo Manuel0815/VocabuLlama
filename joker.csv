@@ -1,6 +1,6 @@
 Type;Title;Text;Points;Affects
-Plus;Plus 15;You get 15 points!;15;own
-Minus;Minus 10;You loose 10 points!;-10;own
+Add;Plus 15;You get 15 points!;15;own
+Add;Minus 10;You loose 10 points!;-10;own
 Steal;Steal 10 Points;You steal 10 points of your opponent!;10;opponent
 Steal;Steal 20 Points;You steal 20 points of your opponent!;20;opponent
 Swap;Swap!;Points are swapped!;0;both
