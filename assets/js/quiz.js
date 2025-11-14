@@ -324,16 +324,22 @@ $(document).ready(function () {
                 $("#summaryMultiPlayerCards").addClass("d-none");
             }
 
-            if (p1points > p2points) {
-                $("#summaryWinner").text("Player 1 Wins!");
+            if (quizConfig.players === 1) {
+                $("#summaryWinner").text("Game Over!");
                 $("#finalp1card").addClass("featured");
                 $("#finalp2card").removeClass("featured");
-            } else if (p2points > p1points) {
-                $("#summaryWinner").text("Player 2 Wins!");
-                $("#finalp2card").addClass("featured");
-                $("#finalp1card").removeClass("featured");
             } else {
-                $("#summaryWinner").text("It's a Tie!");
+                if (p1points > p2points) {
+                    $("#summaryWinner").text("Player 1 Wins!");
+                    $("#finalp1card").addClass("featured");
+                    $("#finalp2card").removeClass("featured");
+                } else if (p2points > p1points) {
+                    $("#summaryWinner").text("Player 2 Wins!");
+                    $("#finalp2card").addClass("featured");
+                    $("#finalp1card").removeClass("featured");
+                } else {
+                    $("#summaryWinner").text("It's a Tie!");
+                }
             }
             return;
         }
@@ -379,54 +385,54 @@ $(document).ready(function () {
         console.log("Accepting joker for player " + currentPlayer);
         const currentWord = quizConfig.words[quizConfig.currentIndex];
         const joker = jokerList.find(j => j.title === currentWord.english);
-            if (joker) {
-                setTimeout(() => {
-                    console.log("Applying joker effect: " + JSON.stringify(joker));
-                    // apply joker effect
-                    const pts = parseInt(joker.points, 10) || 0;
-                    switch ((joker.type || '').toLowerCase()) {
-                        case 'add':
-                            if (pts > 0)
-                                correctSound();
-                            else
-                                wrongSound();
-                            if (currentPlayer === 1) p1points += pts;
-                            else p2points += pts;
-                            break;
-                        case 'steal':
-                            if (pts > 0)
-                                correctSound();
-                            else
-                                wrongSound();
-                            if (currentPlayer === 1) {
-                                p1points += pts;
-                                p2points -= pts;
-                            } else {
-                                p2points += pts;
-                                p1points -= pts;
-                            }
-                            break;
-                        case 'swap':
-                            jokerSound();
-                            [p1points, p2points] = [p2points, p1points];
-                            break;
-                        case 'double':
+        if (joker) {
+            setTimeout(() => {
+                console.log("Applying joker effect: " + JSON.stringify(joker));
+                // apply joker effect
+                const pts = parseInt(joker.points, 10) || 0;
+                switch ((joker.type || '').toLowerCase()) {
+                    case 'add':
+                        if (pts > 0)
                             correctSound();
-                            if (currentPlayer === 1) p1points *= 2;
-                            else p2points *= 2;
-                            break;
-                        case 'reset':
+                        else
                             wrongSound();
-                            p1points = 0;
-                            p2points = 0;
-                            break;
-                        default:
-                            console.warn('Unhandled joker type:', joker.type);
-                    }
-                    setPlayerPoints();
-                    nextWord();
-                }, 10);
-            }
+                        if (currentPlayer === 1) p1points += pts;
+                        else p2points += pts;
+                        break;
+                    case 'steal':
+                        if (pts > 0)
+                            correctSound();
+                        else
+                            wrongSound();
+                        if (currentPlayer === 1) {
+                            p1points += pts;
+                            p2points -= pts;
+                        } else {
+                            p2points += pts;
+                            p1points -= pts;
+                        }
+                        break;
+                    case 'swap':
+                        jokerSound();
+                        [p1points, p2points] = [p2points, p1points];
+                        break;
+                    case 'double':
+                        correctSound();
+                        if (currentPlayer === 1) p1points *= 2;
+                        else p2points *= 2;
+                        break;
+                    case 'reset':
+                        wrongSound();
+                        p1points = 0;
+                        p2points = 0;
+                        break;
+                    default:
+                        console.warn('Unhandled joker type:', joker.type);
+                }
+                setPlayerPoints();
+                nextWord();
+            }, 10);
+        }
     });
 
     $("#btnRestart").click(function () {
