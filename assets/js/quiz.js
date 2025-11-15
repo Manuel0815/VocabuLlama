@@ -259,7 +259,10 @@ $(document).ready(function () {
             }
         }
         else {
-            $("#quizWord").text(currentWord.german);
+            if(quizConfig.language == "2")
+                $("#quizWord").text(currentWord.english);
+            else
+                $("#quizWord").text(currentWord.german);
             $("#quizWordSolution").text("_____________");
             $("#btnShow").removeClass("d-none");
             $("#btnAcceptJoker").addClass("d-none");
@@ -295,7 +298,10 @@ $(document).ready(function () {
 
     function showSolution() {
         const currentWord = quizConfig.words[quizConfig.currentIndex];
-        $("#quizWordSolution").text(currentWord.english);
+        if(quizConfig.language == "2")
+            $("#quizWordSolution").text(currentWord.german);
+        else
+            $("#quizWordSolution").text(currentWord.english);
         $("#btnShow").addClass("d-none");
         $("#btnCorrect").removeClass("d-none");
         $("#btnWrong").removeClass("d-none");
@@ -444,6 +450,7 @@ $(document).ready(function () {
         const wordCount = parseInt($("#wordCount").val());
         const unitSelect = $("#unitSelect").val();
         const playerCount = parseInt($("#playerCount").val());
+        const language = $("#language").val();
 
         // Filter words by unit if specified
         let filteredWords = wordList;
@@ -500,7 +507,8 @@ $(document).ready(function () {
         quizConfig = {
             currentIndex: 0,
             words: filteredWords,
-            players: playerCount
+            players: playerCount,
+            language: language // 1 = english, 2 = german
         };
 
         console.log(filteredWords.length + " words selected.\n" + JSON.stringify(quizConfig, null, 2));
