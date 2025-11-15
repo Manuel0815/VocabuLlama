@@ -453,7 +453,7 @@ $(document).ready(function () {
 
         // Calculate joker count and select random jokers (only for multiplayer)
         let selectedJokers = [];
-        const jokerCount = (playerCount !== 1 && wordCount > 0) ? Math.floor(wordCount / 6) : 0;
+        const jokerCount = (playerCount !== 1 && wordCount > 0) ? Math.floor(wordCount / 7) : 0;
         if (jokerCount > 0 && jokerList.length > 0) {
             const shuffled = jokerList.slice();
             for (let i = shuffled.length - 1; i > 0; i--) {
