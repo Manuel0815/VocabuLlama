@@ -1355,7 +1355,7 @@ section,
   transition: transform 0.3s ease;
 }
 
-.resume .experience-section .experience-cards .exp-card:hover {
+/* .resume .experience-section .experience-cards .exp-card:hover {
   transform: translateY(-5px);
   border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
   box-shadow: 0 15px 45px color-mix(in srgb, var(--default-color), transparent 85%);
@@ -1363,7 +1363,7 @@ section,
 
 .resume .experience-section .experience-cards .exp-card:hover::before {
   transform: translateX(0);
-}
+} */
 
 .resume .experience-section .experience-cards .exp-card.featured {
   border-color: color-mix(in srgb, var(--accent-color), transparent 70%);
