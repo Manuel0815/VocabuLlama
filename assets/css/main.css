@@ -702,7 +702,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 40px 0;
+  padding: 50px 0;
   scroll-margin-top: 90px;
   overflow: clip;
 }
